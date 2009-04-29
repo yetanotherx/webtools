@@ -15,6 +15,13 @@ if (isset($_GET['wiki']) && isset($_GET['lang']) && isset($_GET['name'])) {
 }
 unset($tool, $surl);
 
+//Tell footer.php to output source
+function outputSource() {
+	echo "<li>
+	<a href=\"http://github.com/soxred93/webtools/blob?path%5B%5D=autoedits&path%5B%5D=index.php&raw=true\">View source</a>
+	</li>";
+}
+
 
 //Debugging stuff
 function pre( $array ) {

@@ -5,6 +5,13 @@ include('/home/soxred93/wikibot.classes.php');
 
 $http = new http;
 
+//Tell footer.php to output source
+function outputSource() {
+	echo "<li>
+	<a href=\"http://github.com/soxred93/webtools/blob?path%5B%5D=bash&path%5B%5D=index.php&raw=true\">View source</a>
+	</li>";
+}
+
 ?>
 
 <div id="content">
