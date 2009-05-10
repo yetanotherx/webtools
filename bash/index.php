@@ -26,14 +26,22 @@ echo "<h2 class=\"table\">Random quote from <a href=\"http://meta.wikimedia.org/
 $text = $http->get('http://meta.wikimedia.org/w/index.php?title=IRC/Quotes&action=raw&ctype=text/css', false);
 
 $text = explode('<pre><nowiki>', $text);
-$text = explode('%%', $text[1]);
+$text = explode('</nowiki></pre>', $text[1]);
+$text = explode('%%', $text[0]);
 $text = substr($text[0], 2);
 $text = htmlspecialchars($text);
+$text = trim($text);
 $text = preg_replace('/\n/', '<br />', $text);
 
 $quotes = explode("%<br />", $text);
 if ( isset($_GET['id']) ) {
     echo $quotes[$_GET['id']];
+}
+elseif ( isset($_GET['showall']) ) {
+	foreach( $quotes as $id => $quote ) {
+		echo "<h3>Quote # $id</h3>";
+    	echo $quote;
+	}
 }
 else {
     $rand = rand(0, count($quotes));

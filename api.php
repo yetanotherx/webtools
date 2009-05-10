@@ -133,7 +133,6 @@ elseif( $action == 'size' ) {
 		$t = shell_exec('/home/soxred93/size.sh -t '.$srv);
 		$f = shell_exec('/home/soxred93/size.sh -f '.$srv);
 		$u = shell_exec('/home/soxred93/size.sh -u '.$srv);
-
 		$s[$srv] = array(
 			'free' => trim($f),
 			'used' => trim($u),
